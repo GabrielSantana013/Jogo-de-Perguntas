@@ -7,12 +7,12 @@
 int main(){
     setlocale(LC_ALL, "");
     char Questions[][100] = { 
-    "1. Qual é a capital do Brasil?: ",
+    "1. Qual Ã© a capital do Brasil?: ",
     "2. Como se chama o primeiro presidente do Brasil?: ",
-    "3. Qual é o nome do maior animal terrestre vivo atualmente?: "};
+    "3. Qual Ã© o nome do maior animal terrestre vivo atualmente?: "};
 
     char Alternativas[][100] = {
-    "A. Rio de Janeiro", "B. São Paulo","C. Brasilia","D. Santos",
+    "A. Rio de Janeiro", "B. SÃ£o Paulo","C. Brasilia","D. Santos",
     "A. Dom Pedro Primeiro","B. Marechal Deodoro da Fonseca","C. Lula","D. Bolsonaro",
     "A. Elefante", "B. Girafa","C. Jubarte","D. Rinoceronte"};
 
@@ -37,10 +37,10 @@ int main(){
         printf("Resposta: ");
         scanf("%s", &resposta);
         resposta[0] = toupper(resposta[0]);
-        fflush(stdin);
+        setbuf(stdin, NULL);
         if(strlen(resposta) != 1)
         {
-            printf("Resposta inválida, por favor pressione qualquer tecla para continuar\n");
+            printf("Resposta invÃ¡lida, por favor pressione qualquer tecla para continuar\n");
             getchar();
             i--;
             system("cls");
@@ -51,12 +51,11 @@ int main(){
         while (resposta[0] != 'A' && resposta[0] != 'B' && resposta[0] != 'C' && resposta[0] != 'D')
         {
 
-            printf("Resposta inválida, por favor digite (A),(B),(C) ou (D)\n");
+            printf("Resposta invÃ¡lida, por favor digite (A),(B),(C) ou (D)\n");
             scanf("%s", &resposta);
             resposta[0] = toupper(resposta[0]);
-            fflush(stdin);
-            
-            
+            setbuf(stdin, NULL);
+           
         }
 
         if(resposta[0] == Corretas[i])
@@ -70,10 +69,8 @@ int main(){
         }
     }
 
-    printf("Você acertou %d questões de %d.\n", pontuacao, ndquestoes);
-    fflush(stdin);
-    printf("Pressione enter para finalizar...");
-    getchar();
+    printf("VocÃª acertou %d quest?es de %d.\n", pontuacao, ndquestoes);
+    system("pause");
 
 return 0;
 }
